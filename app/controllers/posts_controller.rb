@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
   def new
     @group = Group.find(params[:group_id])
     @post = Post.new
